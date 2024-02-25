@@ -1,12 +1,12 @@
 Events :
 coin/cash
 scan (whether the product is dropped or not )
-refund ( user cancel purchase before inputting product id)
+CancelPurchase ( user cancel purchase before inputting product id)
 
 actions : 
 spin ( spins the spiral spring to drop the product)
-dispense_changes ( dispense of extra changes)
-refund ( full refund if the product is not dropped )
+dispenseChanges ( dispense of extra changes)
+refund ( full refund if the product is not dropped or user cancels the purchase )
 
 
 states: 
