@@ -10,6 +10,6 @@ refund ( full refund if the product is not dropped or user cancels the purchase 
 
 
 states: 
-idle
-spinning
-waiting for scan output
+idle 
+Active : processing the transaction
+passive : waiting for scan event

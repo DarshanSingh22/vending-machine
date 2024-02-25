@@ -1,0 +1,24 @@
+  STATE PATTERN TABLE
+
+  currentState , event , action , nextState
+    Inactive =>  coin => getProduct => Active
+    Active => noEvent*1 => refund => Inactive
+    Active => noEvent*2 => spin => Passive
+    Passive => scan => dispenseChanges => Inactive
+    Passive => noScan* => dispenseRefund => Inactive
+
+noEvent*1 : Either invalid purchase or product not available
+noEvent*2 : After successful validation of purchase and product availability spin function is called
+
+After spin exection machine wait for certain seconds for scan result whether item is dropped or not
+scan* : Item is dropped
+noScan* : No item dropped
+
+
+  there is one unhandled case: After coin insertion user wants to cancel purchase.
+
+    # Inactive => refund => dispenseRefund => Inactive    
+    # Active => coin => noAction => Active
+    # Active => refund => noAction => Active
+    # Passive => coin => noAction => Passive
+    # Passive => refund => noAction => Passive
