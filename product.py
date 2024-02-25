@@ -8,7 +8,7 @@ class Product:
 
     def __init__(self, Id, count):
 
-        self.__products__ = self.__loadProducts__('products.json')
+        self.__products__ = self.__loadProducts__('assets/products.json')
 
         self.productId = str(Id)
         self.count = count
