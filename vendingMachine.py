@@ -8,13 +8,11 @@ class VendingMachine:
 
     def getProduct(self, purchase: Purchase):
 
-        self.purchase = purchase
-
-        if not self.__checkProductAvailable__(self.purchase.product):
+        if not self.__isProductAvailable__(purchase.product):
             self.__dispenseFullRefund__(purchase.amount)
             return
 
-        if not self.__checkValidatePurchase__(self.purchase):
+        if not self.__isValidPurchase__(self.purchase):
             self.__dispenseFullRefund__(purchase.amount)
             return
         
@@ -22,12 +20,12 @@ class VendingMachine:
  
 
 
-    def __checkProductAvailable__(self, product: Product):
+    def __isProductAvailable__(self, product: Product):
         return product.getCount() >= product.count
     
 
 
-    def __checkValidatePurchase__(self, purchase: Purchase):
+    def __isValidPurchase__(self, purchase: Purchase):
         return purchase.product.price * purchase.product.count <= purchase.amount
         
 
